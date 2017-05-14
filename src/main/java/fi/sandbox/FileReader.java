@@ -37,9 +37,9 @@ public class FileReader {
         try (Scanner reader = new Scanner(new File(file), "UTF-8")) {
             while (reader.hasNextLine()) {
                 String row = reader.nextLine();
-                //String[] items = row.split("\\|");
-                //int id = Integer.valueOf(items[1]);
-                list.addAContactToList(new Contact(row));
+                String[] items = row.split("\\|");
+                int id = Integer.valueOf(items[1]);
+                list.addAContactToList(new Contact(items[0],id));
                 countRows++;
             }
         } catch (FileNotFoundException ex) {
