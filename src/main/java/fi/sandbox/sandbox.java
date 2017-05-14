@@ -1,12 +1,18 @@
 package fi.sandbox;
 
+import fi.sandbox.logic.FileReader;
+import fi.sandbox.logic.lists.CustomerList;
+import fi.sandbox.logic.Customer;
+import fi.sandbox.logic.lists.ContactList;
+import fi.sandbox.logic.Contact;
+
 public class sandbox {
 
     public static void main(String[] args) {
 
         ContactList contacts = new ContactList();
         FileReader just = new FileReader(contacts);
-        just.read("test2_1.txt");
+        just.read("koe1_1.txt");
 
         contacts.addAContactToList(new Contact("malli@gemmi.com"));
         contacts.addAContactToList(new Contact("aabeli@gammi.fi"));
@@ -29,9 +35,12 @@ public class sandbox {
         customers.addACustomerToList(bea);
         customers.addACustomerToList(cea);
         customers.compareAndLabelContacts(contacts);
+        contacts.addAContactRowToList();
+        customers.createAndUpdate(contacts);
         long endTime = System.currentTimeMillis();
         System.out.println(printTime(startTime, endTime));
-        //customers.print();
+        customers.print();
+        System.out.println("sssss");
         contacts.print();
 
 //        Map<String, String> mappi = new HashMap<>();
